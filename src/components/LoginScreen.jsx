@@ -1,9 +1,6 @@
 import React from 'react'
 import LoginFunction from './Login'
 
-
-
-
 export const LoginScreen = () => {
   return (
     <>

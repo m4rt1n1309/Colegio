@@ -1,13 +1,15 @@
 import BarraNav from "./components/BarraNav"
 import { AppRouter } from "./router/AppRouter"
-
+import {LoginScreen} from "./components/LoginScreen"
+import "./style/app.css"
 
 function App() {
 
   return (
     <>
-      <BarraNav/>
-      <AppRouter/>
+    <div className="namdhinggo-regular">
+      <LoginScreen/>
+      </div>
      
     </>
   )
