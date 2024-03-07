@@ -1,18 +1,16 @@
-import BarraNav from "./components/BarraNav"
-import { AppRouter } from "./router/AppRouter"
-import {LoginScreen} from "./components/LoginScreen"
-import "./style/app.css"
+import Administracion from "./components/Administracion";
+import BarraNav from "./components/BarraNav";
 
 function App() {
-
   return (
     <>
-    <div className="namdhinggo-regular">
-      <LoginScreen/>
+      <div className="namdhinggo-regular">
+        <BarraNav />
+
+        <Administracion />
       </div>
-     
     </>
-  )
+  );
 }
 
-export default App
+export default App;
