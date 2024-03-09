@@ -1,0 +1,16 @@
+.wrapper {
+    height: 100vh;
+    
+}
+.login{
+    width: 300px;
+    padding: 20px;
+    height: min-content;
+    border-radius: 5px;
+    color: black;
+    background-color: rgb(226, 232, 235);
+}
+.colourbutton{
+    background-color: #3C5A9C !important;
+    color:aliceblue !important;
+}
