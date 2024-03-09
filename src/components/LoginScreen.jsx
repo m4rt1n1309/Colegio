@@ -1,14 +1,14 @@
 import React from 'react'
 import LoginFunction from './Login'
-
-
-
+import '../style/login.css' 
 
 export const LoginScreen = () => {
   return (
     <>
-        <h1 className='text-center mt-2'>Login</h1>
-        <LoginFunction/>    
+    <div className='body'>
+        <LoginFunction/>  
+        </div>
+    
     </>
   )
 }
