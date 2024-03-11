@@ -7,7 +7,8 @@ function App() {
 
   return (
     <>
-    <div className="namdhinggo-regular">
+      <div className="namdhinggo-regular">
+        <BarraNav/>
       <LoginScreen/>
       </div>
      
