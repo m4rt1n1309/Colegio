@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <div className="namdhinggo-regular">
-        <BarraNav/>
+      <BarraNav/>
       <LoginScreen/>
       </div>
      

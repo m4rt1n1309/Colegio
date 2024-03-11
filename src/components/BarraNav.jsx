@@ -7,7 +7,7 @@ function BarraNav() {
     <>
       <Navbar className="navlogin d-flex justify-content-center" expand="lg">
         <div className='div-imagen'>
-          <img src="../public/images/logoescuela.png" alt="logoescuela" width="150px" />
+          <img src="../public/images/logoescuelalogin.png" alt="logoescuela" width="150px" />
         </div>
       </Navbar>
     </>
