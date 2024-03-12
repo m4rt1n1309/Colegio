@@ -1,7 +1,10 @@
 import '../style/login.css'
 import { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css';
+
+
 
 
 function LoginFunction() {
@@ -9,6 +12,8 @@ function LoginFunction() {
   const [password, setPassword] = useState("");
   const [isFormSubmitted, setFormSubmitted] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+
   
 
   const handleChangeEmail = (e)=>{
@@ -58,6 +63,10 @@ function LoginFunction() {
         text: "El correo ingresado o la contraseña son incorrectas",
       });
     }
+    else if (loggedIn) {
+      return <Redirect to="" />;
+    }
+  
   }
 
 
