@@ -18,10 +18,10 @@ export const Administracion = () => {
 
   return (
     <>
-      <h1 className="text-center ms-5 my-3 ">Datos Administrativos</h1>
+      <h1 className="text-center ms-5 my-2 ">Datos Administrativos</h1>
       <Card border="primary" className="container p-3 border rounded  my-5">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <Row className="mb-5 m-4">
+          <Row className="mb-1 container ">
             <Form.Group md="4" sm={10} controlId="validationCustom01">
               <Form.Label>
                 <strong>Nombre</strong>
@@ -33,7 +33,7 @@ export const Administracion = () => {
               md="4"
               sm={10}
               controlId="validationCustom02"
-              className="mt-3 "
+              className="mt-3  "
             >
               <Form.Label>
                 <strong>Apellido</strong>
@@ -42,9 +42,10 @@ export const Administracion = () => {
                 required
                 type="text"
                 defaultValue=""
-                className="mt-3"
+                className="mt-3 "
               />
             </Form.Group>
+
             <Form.Group
               md="4"
               sm={10}
@@ -61,6 +62,7 @@ export const Administracion = () => {
                 className="mt-3"
               />
             </Form.Group>
+
             <Form.Group
               md="4"
               sm={10}
