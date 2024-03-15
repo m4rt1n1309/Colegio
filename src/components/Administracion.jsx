@@ -4,8 +4,8 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-
-
+import { Carousel } from "react-bootstrap";
+import "../style/ppprincipal.css";
 
 export const Administracion = () => {
   const [validated, setValidated] = useState(false);
@@ -22,22 +22,67 @@ export const Administracion = () => {
 
   return (
     <>
-
       <h1 className="text-center mt-5 mb-3">Datos Administrativos</h1>
-      <Container fluid>
-        <Row>
+      <Container>
+        <Row className="pprincipal">
           {/* Cartel de propaganda izquierdo */}
           <Col md={3} className="d-none d-md-block">
             <Card border="info" className="p-3 border rounded mt-5">
               <Card.Title>Publicidad</Card.Title>
-              {/* Contenido del cartel de propaganda */}
+              <Carousel data-bs-theme="dark">
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="holder.js/800x400?text=First slide&bg=f5f5f5"
+                    alt="First slide"
+                  />
+                  <Carousel.Caption>
+                    <h5>First slide label</h5>
+                    <p>
+                      Nulla vitae elit libero, a pharetra augue mollis interdum.
+                    </p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="holder.js/800x400?text=Second slide&bg=eee"
+                    alt="Second slide"
+                  />
+                  <Carousel.Caption>
+                    <h5>Second slide label</h5>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="holder.js/800x400?text=Third slide&bg=e5e5e5"
+                    alt="Third slide"
+                  />
+                  <Carousel.Caption>
+                    <h5>Third slide label</h5>
+                    <p>
+                      Praesent commodo cursus magna, vel scelerisque nisl
+                      consectetur.
+                    </p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              </Carousel>
             </Card>
           </Col>
 
           {/* Contenedor principal */}
           <Col md={6} sm={10} controlId="validationCustom01">
             <Card border="primary" className="p-3 border rounded my-5">
-              <Form noValidate validated={validated} onSubmit={handleSubmit}>
+              <Form
+                className="pprincipal"
+                noValidate
+                validated={validated}
+                onSubmit={handleSubmit}
+              >
                 <Form.Group as={Col} controlId="validationCustom01">
                   <Form.Label>
                     <strong>Nombre</strong>
@@ -94,7 +139,48 @@ export const Administracion = () => {
           <Col md={3} className="d-none d-md-block">
             <Card border="info" className="p-3 border rounded mt-5">
               <Card.Title>Publicidad</Card.Title>
-              {/* Contenido del cartel de propaganda */}
+              <Carousel data-bs-theme="dark">
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="holder.js/800x400?text=First slide&bg=f5f5f5"
+                    alt="First slide"
+                  />
+                  <Carousel.Caption>
+                    <h5>First slide label</h5>
+                    <p>
+                      Nulla vitae elit libero, a pharetra augue mollis interdum.
+                    </p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="holder.js/800x400?text=Second slide&bg=eee"
+                    alt="Second slide"
+                  />
+                  <Carousel.Caption>
+                    <h5>Second slide label</h5>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src="holder.js/800x400?text=Third slide&bg=e5e5e5"
+                    alt="Third slide"
+                  />
+                  <Carousel.Caption>
+                    <h5>Third slide label</h5>
+                    <p>
+                      Praesent commodo cursus magna, vel scelerisque nisl
+                      consectetur.
+                    </p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              </Carousel>
             </Card>
           </Col>
         </Row>
@@ -104,6 +190,3 @@ export const Administracion = () => {
 };
 
 export default Administracion;
-
-      
-
