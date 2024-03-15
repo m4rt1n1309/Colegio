@@ -1,17 +1,27 @@
+
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
 import "../style/Barranav.css";
 
-function BarraNav() {
+export const BarraNav = () => {
   return (
     <>
-      <Navbar className="navlogin d-flex justify-content-center" expand="lg">
-        <div className='div-imagen'>
-          <img src="../public/images/logoescuelalogin.png" alt="logoescuela" width="150px" />
-        </div>
+      <Navbar bg="dark" data-bs-theme="dark">
+        <Container>
+          <Navbar.Brand href="#home">Libreria el 11</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="/Home">Inicio</Nav.Link>
+            <Nav.Link href="./Login">Login</Nav.Link>
+            <Nav.Link href="./Registro">Registro</Nav.Link>
+          </Nav>
+        </Container>
       </Navbar>
     </>
   );
-}
+};
+
+
 
 export default BarraNav;
