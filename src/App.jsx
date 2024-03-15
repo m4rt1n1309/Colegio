@@ -5,9 +5,12 @@ function App() {
   return (
     <>
       <div className="namdhinggo-regular">
-        <BarraNav />
 
-        <Administracion />
+       
+
+      <BarraNav/>
+      <LoginScreen/>
+
       </div>
     </>
   );

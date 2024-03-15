@@ -5,6 +5,8 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
+
+
 export const Administracion = () => {
   const [validated, setValidated] = useState(false);
 
@@ -20,6 +22,7 @@ export const Administracion = () => {
 
   return (
     <>
+
       <h1 className="text-center mt-5 mb-3">Datos Administrativos</h1>
       <Container fluid>
         <Row>
@@ -101,3 +104,6 @@ export const Administracion = () => {
 };
 
 export default Administracion;
+
+      
+
