@@ -6,9 +6,23 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import { Carousel } from "react-bootstrap";
 import "../style/ppprincipal.css";
+import pruebaApi from "../api/api";
 
 export const Administracion = () => {
   const [validated, setValidated] = useState(false);
+
+  const [nombre, setNombre] = useState("");
+
+  const recibirRegister = async (nombre) => {
+    try {
+      const resp = await pruebaApi.get("./auth/register", {
+        nombre,
+      });
+      console.log(resp);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleSubmit = (e) => {
     const form = e.currentTarget;
@@ -18,6 +32,7 @@ export const Administracion = () => {
     }
 
     setValidated(true);
+    recibirRegister(nombre);
   };
 
   return (
@@ -87,7 +102,12 @@ export const Administracion = () => {
                   <Form.Label>
                     <strong>Nombre</strong>
                   </Form.Label>
-                  <Form.Control required type="text" />
+                  <Form.Control
+                    required
+                    type="text"
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                  />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="validationCustom02">
