@@ -73,7 +73,7 @@ export const Administracion = () => {
           </Col>
 
           {/* Contenedor principal */}
-          <Col md={6} sm={10} controlId="validationCustom01">
+          <Col md={6} sm={10} controlid="validationCustom01">
             <Card border="primary" className="p-3 border rounded my-5">
               <Form
                 className="pprincipal"
@@ -81,7 +81,7 @@ export const Administracion = () => {
                 validated={validated}
                 onSubmit={handleSubmit}
               >
-                <Form.Group as={Col} controlId="validationCustom01">
+                <Form.Group as={Col} controlid="validationCustom01">
                   <Form.Label>
                     <strong>Nombre</strong>
                   </Form.Label>
@@ -93,42 +93,42 @@ export const Administracion = () => {
                   />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="validationCustom02">
+                <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Apellido</strong>
                   </Form.Label>
                   <Form.Control required type="text" defaultValue="" />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="validationCustom02">
+                <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Fecha de ingreso</strong>
                   </Form.Label>
                   <Form.Control required type="Fecha" defaultValue="" />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="validationCustom02">
+                <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Contacto</strong>
                   </Form.Label>
                   <Form.Control required type="number" defaultValue="" />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="validationCustom02">
+                <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>ID</strong>
                   </Form.Label>
                   <Form.Control required type="number" defaultValue="" />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="validationCustom02">
+                <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Nombre Institucion</strong>
                   </Form.Label>
                   <Form.Control required type="text" defaultValue="" />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="validationCustom02">
+                <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Email Institucion</strong>
                   </Form.Label>
