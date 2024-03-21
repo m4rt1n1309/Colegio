@@ -10,6 +10,16 @@ import "../style/ppprincipal.css";
 export const Administracion = () => {
   const [validated, setValidated] = useState(false);
 
+  // const [cargarAdministrador, setCargarAdministrador] = useState ([]);
+  
+  // const cargaDeAdmin = async ()=>{
+  //   try {
+  //     const resp = await pruebaApi.get
+  //   } catch (error) {
+      
+  //   }
+  // }
+
   const handleSubmit = (e) => {
     const form = e.currentTarget;
     if (form.checkValidity() === false) {

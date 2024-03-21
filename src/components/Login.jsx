@@ -2,12 +2,15 @@ import "../style/login.css";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
+import pruebaApi from "../api/pruebaApi";
+import { useNavigate } from 'react-router-dom';
 
 function LoginFunction() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isFormSubmitted, setFormSubmitted] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleChangeEmail = (e) => {
     setEmail(e.target.value);
@@ -20,6 +23,23 @@ function LoginFunction() {
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
+
+  const startLogin = async (email, password) =>{
+    try {
+      
+      const resp = await pruebaApi.post("auth/login",{
+        email,
+        password,
+      });
+      
+      console.log(resp)
+      
+      navigate('/admin');
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const handleSubmit = (e) => {
     //prever que se refresque la pagina
@@ -51,6 +71,7 @@ function LoginFunction() {
         text: "El correo ingresado o la contraseña son incorrectas",
       });
     }
+    startLogin(email, password);
   };
 
   return (
