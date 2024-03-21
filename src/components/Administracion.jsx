@@ -6,19 +6,23 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import { Carousel } from "react-bootstrap";
 import "../style/ppprincipal.css";
+// import pruebaApi from "../api/api";
 
 export const Administracion = () => {
   const [validated, setValidated] = useState(false);
 
-  // const [cargarAdministrador, setCargarAdministrador] = useState ([]);
-  
-  // const cargaDeAdmin = async ()=>{
+  // const [nombre, setNombre] = useState("");
+
+  // const recibirRegister = async (nombre) => {
   //   try {
-  //     const resp = await pruebaApi.get
+  //     const resp = await pruebaApi.get("./auth/register", {
+  //       nombre,
+  //     });
+  //     console.log(resp);
   //   } catch (error) {
-      
+  //     console.log(error);
   //   }
-  // }
+  // };
 
   const handleSubmit = (e) => {
     const form = e.currentTarget;
@@ -28,6 +32,7 @@ export const Administracion = () => {
     }
 
     setValidated(true);
+    // recibirRegister(nombre);
   };
 
   return (
@@ -37,48 +42,31 @@ export const Administracion = () => {
         <Row className="pprincipal">
           {/* Cartel de propaganda izquierdo */}
           <Col md={3} className="d-none d-md-block">
-            <Card border="info" className="p-3 border rounded mt-5">
-              <Card.Title>Publicidad</Card.Title>
-              <Carousel data-bs-theme="dark">
+            <Card className="p-3  mt-5">
+              <Carousel>
                 <Carousel.Item>
                   <img
-                    className="d-block w-100"
-                    src="holder.js/800x400?text=First slide&bg=f5f5f5"
+                    className=" w-100"
+                    src="https://tpc.googlesyndication.com/simgad/757953692214610139"
                     alt="First slide"
                   />
-                  <Carousel.Caption>
-                    <h5>First slide label</h5>
-                    <p>
-                      Nulla vitae elit libero, a pharetra augue mollis interdum.
-                    </p>
-                  </Carousel.Caption>
+                  <Carousel.Caption></Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=Second slide&bg=eee"
+                    src="https://promiedos.nyc3.cdn.digitaloceanspaces.com/gen2.gif"
                     alt="Second slide"
                   />
-                  <Carousel.Caption>
-                    <h5>Second slide label</h5>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                  </Carousel.Caption>
+                  <Carousel.Caption></Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=Third slide&bg=e5e5e5"
+                    src="https://s0.2mdn.net/simgad/9750117053634973713"
                     alt="Third slide"
                   />
-                  <Carousel.Caption>
-                    <h5>Third slide label</h5>
-                    <p>
-                      Praesent commodo cursus magna, vel scelerisque nisl
-                      consectetur.
-                    </p>
-                  </Carousel.Caption>
+                  <Carousel.Caption></Carousel.Caption>
                 </Carousel.Item>
               </Carousel>
             </Card>
@@ -97,7 +85,12 @@ export const Administracion = () => {
                   <Form.Label>
                     <strong>Nombre</strong>
                   </Form.Label>
-                  <Form.Control required type="text" />
+                  <Form.Control
+                    required
+                    type="text"
+                    // value={nombre}
+                    // onChange={(e) => setNombre(e.target.value)}
+                  />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="validationCustom02">
@@ -147,48 +140,28 @@ export const Administracion = () => {
 
           {/* Cartel de propaganda derecho */}
           <Col md={3} className="d-none d-md-block">
-            <Card border="info" className="p-3 border rounded mt-5">
-              <Card.Title>Publicidad</Card.Title>
-              <Carousel data-bs-theme="dark">
+            <Card className="p-3  mt-5">
+              <Carousel>
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=First slide&bg=f5f5f5"
+                    src="https://tpc.googlesyndication.com/simgad/757953692214610139"
                     alt="First slide"
                   />
-                  <Carousel.Caption>
-                    <h5>First slide label</h5>
-                    <p>
-                      Nulla vitae elit libero, a pharetra augue mollis interdum.
-                    </p>
-                  </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=Second slide&bg=eee"
+                    src="https://promiedos.nyc3.cdn.digitaloceanspaces.com/gen2.gif"
                     alt="Second slide"
                   />
-                  <Carousel.Caption>
-                    <h5>Second slide label</h5>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                  </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=Third slide&bg=e5e5e5"
+                    src="https://s0.2mdn.net/simgad/9750117053634973713"
                     alt="Third slide"
                   />
-                  <Carousel.Caption>
-                    <h5>Third slide label</h5>
-                    <p>
-                      Praesent commodo cursus magna, vel scelerisque nisl
-                      consectetur.
-                    </p>
-                  </Carousel.Caption>
                 </Carousel.Item>
               </Carousel>
             </Card>
