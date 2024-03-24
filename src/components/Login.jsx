@@ -11,6 +11,7 @@ function LoginFunction() {
   const [isFormSubmitted, setFormSubmitted] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const [token, setToken] = useState();
 
   const handleChangeEmail = (e) => {
     setEmail(e.target.value);
@@ -32,9 +33,10 @@ function LoginFunction() {
         password,
       });
       
-      console.log(resp)
+      setToken(resp.data.token);
+      localStorage.setItem('token', resp.data.token);
       
-      navigate('/admin');
+      navigate('administracion');
 
     } catch (error) {
       console.log(error);

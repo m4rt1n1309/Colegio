@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
@@ -6,32 +6,44 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import { Carousel } from "react-bootstrap";
 import "../style/ppprincipal.css";
+import pruebaApi from "../api/pruebaApi";
+import LogoutButton from "./Logout";
 
 export const Administracion = () => {
-  const [validated, setValidated] = useState(false);
+  const [datosAdmin, setDatosAdmin] = useState({}); // Inicializa datosAdmin como un objeto vacío
 
-  // const [cargarAdministrador, setCargarAdministrador] = useState ([]);
-  
-  // const cargaDeAdmin = async ()=>{
-  //   try {
-  //     const resp = await pruebaApi.get
-  //   } catch (error) {
-      
-  //   }
-  // }
+  const localToken = localStorage.getItem('token');
+  let idAdmin;
 
-  const handleSubmit = (e) => {
-    const form = e.currentTarget;
-    if (form.checkValidity() === false) {
-      e.preventDefault();
-      e.stopPropagation();
+  useEffect(() => { // Mover la lógica de obtener los datos del administrador dentro de useEffect
+    const obtenerDatos = async (idAdmin) => {
+      try {
+        if (idAdmin) {
+          const resp = await pruebaApi.post('/admin/datosadmin', { _id: idAdmin });
+          setDatosAdmin(resp.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    if (localToken) {
+      const tokenBody = localToken.split('.')[1];
+      const decodedToken = JSON.parse(atob(tokenBody));
+      idAdmin = decodedToken.id;
+      obtenerDatos(idAdmin); // Llama a obtenerDatos cuando idAdmin cambie
+    } else {
+      console.log('No se encontró ningún token en el almacenamiento local.');
     }
+  }, [localToken]); // Este efecto se ejecutará cuando localToken cambie
 
-    setValidated(true);
-  };
+  // Desestructura datosAdmin después de asegurarte de que se ha actualizado correctamente
+  const { admin } = datosAdmin || {};
+  const { nombre, apellido, telefono, fechaIngreso, contacto, _id, colegio } = admin || {};
 
   return (
     <>
+    
       <h1 className="text-center mt-5 mb-3">Datos Administrativos</h1>
       <Container>
         <Row className="pprincipal">
@@ -85,61 +97,61 @@ export const Administracion = () => {
           </Col>
 
           {/* Contenedor principal */}
-          <Col md={6} sm={10} controlId="validationCustom01">
+          <Col md={6} sm={10} controlid="validationCustom01">
             <Card border="primary" className="p-3 border rounded my-5">
               <Form
                 className="pprincipal"
-                noValidate
-                validated={validated}
-                onSubmit={handleSubmit}
+                // noValidate
+                // validated={validated}
+                // onSubmit={handleSubmit}
               >
-                <Form.Group as={Col} controlId="validationCustom01">
+                <Form.Group as={Col} controlid="validationCustom01">
                   <Form.Label>
                     <strong>Nombre</strong>
                   </Form.Label>
-                  <Form.Control required type="text" />
+                  <Form.Control required type="text" defaultValue={nombre} readOnly />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="validationCustom02">
+                <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Apellido</strong>
                   </Form.Label>
-                  <Form.Control required type="text" defaultValue="" />
+                  <Form.Control required type="text" defaultValue={apellido} readOnly  />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="validationCustom02">
+                <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Fecha de ingreso</strong>
                   </Form.Label>
-                  <Form.Control required type="Fecha" defaultValue="" />
+                  <Form.Control required type="Fecha" defaultValue={fechaIngreso} readOnly/>
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="validationCustom02">
+                <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Contacto</strong>
                   </Form.Label>
-                  <Form.Control required type="number" defaultValue="" />
+                  <Form.Control required type="number" defaultValue={telefono} readOnly/>
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="validationCustom02">
+                <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>ID</strong>
                   </Form.Label>
-                  <Form.Control required type="number" defaultValue="" />
+                  <Form.Control required type="text" defaultValue={_id} readOnly />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="validationCustom02">
+                <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Nombre Institucion</strong>
                   </Form.Label>
-                  <Form.Control required type="text" defaultValue="" />
+                  <Form.Control required type="text" defaultValue={colegio} readOnly/>
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="validationCustom02">
+                <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Email Institucion</strong>
                   </Form.Label>
-                  <Form.Control required type="email" defaultValue="" />
+                  <Form.Control required type="email" defaultValue={contacto} readOnly />
                 </Form.Group>
               </Form>
             </Card>
@@ -195,6 +207,7 @@ export const Administracion = () => {
           </Col>
         </Row>
       </Container>
+      <LogoutButton/>
     </>
   );
 };
