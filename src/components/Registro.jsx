@@ -20,8 +20,8 @@ function ValidarRegistro() {
 
   return (
     <>
-    <h1 className='text-center'>Registro</h1>
-    <Form noValidate validated={validated} onSubmit={handleSubmit} className='ms-4 mt-3'>
+    
+    <Form  style={{width:'500px'}} noValidate validated={validated} onSubmit={handleSubmit} className='ms-4 mt-3  d-flex align-items-end flex-column'>
       <Row className="mb-3">
         <Form.Group as={Row} md="4" controlId="validationCustom01">
           <Form.Label><strong>Nombre</strong></Form.Label>
@@ -59,7 +59,7 @@ function ValidarRegistro() {
       </Row>
       
       
-      <Button type="submit" className='mt-3'>Submit form</Button>
+      <Button type="submit" className='mt-3 '>Registrar</Button>
     </Form>
     </>
   );
