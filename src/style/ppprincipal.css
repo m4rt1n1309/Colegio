@@ -4,3 +4,27 @@
     margin-left: 40px !important;
   }
 }
+
+.contenedor-boton {
+  position: absolute;
+  top: 200px;
+  right: 20px; /* Ajusta la posición según tus preferencias */
+}
+
+.boton{
+  border-radius: 15%;
+  background-color: rgb(195, 52, 52);
+  color: white;
+}
+
+.botonalumnos{
+  border-radius: 15%;
+  background-color: rgb(11, 168, 8);
+  color: white;
+}
+
+.contenedor-botonalumno {
+  position: absolute;
+  top: 200px;
+  right: 150px; /* Ajusta la posición según tus preferencias */
+}

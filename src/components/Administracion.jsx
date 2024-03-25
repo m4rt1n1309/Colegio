@@ -41,11 +41,17 @@ export const Administracion = () => {
 
   // Desestructura datosAdmin después de asegurarte de que se ha actualizado correctamente
   const { admin } = datosAdmin || {};
-  const { nombre, apellido, telefono, fechaIngreso, contacto, _id, colegio } = admin || {};
+  let { nombre, apellido, telefono, fechaIngreso, contacto, _id, colegio } = admin || {};
+
+  nombre = nombre ? nombre.toUpperCase() : "";
+  apellido = apellido ? apellido.toUpperCase() : "";
 
   return (
     <>
-    
+      <div className="contenedor-botonalumno">
+      <button className="botonalumnos">Alumnos</button>
+      </div>
+      <LogoutButton className="boton"/>
       <h1 className="text-center mt-5 mb-3">Datos Administrativos</h1>
       <Container>
         <Row className="pprincipal">
@@ -173,7 +179,7 @@ export const Administracion = () => {
           </Col>
         </Row>
       </Container>
-      <LogoutButton/>
+     
     </>
   );
 };
