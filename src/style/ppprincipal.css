@@ -28,3 +28,12 @@
   top: 200px;
   right: 150px; /* Ajusta la posición según tus preferencias */
 }
+
+.fondopantalla {
+  height: 100vh;
+  background-image: linear-gradient(rgba(119, 114, 114, 0.5), rgba(5, 12, 7, 0.5)),
+  url("/public/images/fondo.jpg");
+  background-size: cover;
+  object-fit: cover;
+  background-position: center;
+}

@@ -8,6 +8,7 @@ import { Carousel } from "react-bootstrap";
 import "../style/ppprincipal.css";
 import pruebaApi from "../api/pruebaApi";
 import LogoutButton from "./Logout";
+import BotonAlumno from "./ButtonAlumno";
 
 
 export const Administracion = () => {
@@ -46,13 +47,13 @@ export const Administracion = () => {
   nombre = nombre ? nombre.toUpperCase() : "";
   apellido = apellido ? apellido.toUpperCase() : "";
 
+  
   return (
     <>
-      <div className="contenedor-botonalumno">
-      <button className="botonalumnos">Alumnos</button>
-      </div>
+    <div className="fondopantalla">
+      <BotonAlumno className="botonalumnos"/>
       <LogoutButton className="boton"/>
-      <h1 className="text-center mt-5 mb-3">Datos Administrativos</h1>
+      <h1 className="text-center ">Datos Administrativos</h1>
       <Container>
         <Row className="pprincipal">
           {/* Cartel de propaganda izquierdo */}
@@ -179,6 +180,7 @@ export const Administracion = () => {
           </Col>
         </Row>
       </Container>
+      </div>
      
     </>
   );
