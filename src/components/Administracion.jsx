@@ -9,19 +9,20 @@ import "../style/ppprincipal.css";
 import pruebaApi from "../api/pruebaApi";
 import LogoutButton from "./Logout";
 
-
 export const Administracion = () => {
   const [datosAdmin, setDatosAdmin] = useState({}); // Inicializa datosAdmin como un objeto vacío
 
-  const localToken = localStorage.getItem('token');
+  const localToken = localStorage.getItem("token");
   let idAdmin;
 
-
-  useEffect(() => { // Mover la lógica de obtener los datos del administrador dentro de useEffect
+  useEffect(() => {
+    // Mover la lógica de obtener los datos del administrador dentro de useEffect
     const obtenerDatos = async (idAdmin) => {
       try {
         if (idAdmin) {
-          const resp = await pruebaApi.post('/admin/datosadmin', { _id: idAdmin });
+          const resp = await pruebaApi.post("/admin/datosadmin", {
+            _id: idAdmin,
+          });
           setDatosAdmin(resp.data);
         }
       } catch (error) {
@@ -30,18 +31,19 @@ export const Administracion = () => {
     };
 
     if (localToken) {
-      const tokenBody = localToken.split('.')[1];
+      const tokenBody = localToken.split(".")[1];
       const decodedToken = JSON.parse(atob(tokenBody));
       idAdmin = decodedToken.id;
       obtenerDatos(idAdmin); // Llama a obtenerDatos cuando idAdmin cambie
     } else {
-      console.log('No se encontró ningún token en el almacenamiento local.');
+      console.log("No se encontró ningún token en el almacenamiento local.");
     }
   }, [localToken]); // Este efecto se ejecutará cuando localToken cambie
 
   // Desestructura datosAdmin después de asegurarte de que se ha actualizado correctamente
   const { admin } = datosAdmin || {};
-  let { nombre, apellido, telefono, fechaIngreso, contacto, _id, colegio } = admin || {};
+  let { nombre, apellido, telefono, fechaIngreso, contacto, _id, colegio } =
+    admin || {};
 
   nombre = nombre ? nombre.toUpperCase() : "";
   apellido = apellido ? apellido.toUpperCase() : "";
@@ -49,9 +51,9 @@ export const Administracion = () => {
   return (
     <>
       <div className="contenedor-botonalumno">
-      <button className="botonalumnos">Alumnos</button>
+        <button className="botonalumnos">Alumnos</button>
       </div>
-      <LogoutButton className="boton"/>
+      <LogoutButton className="boton" />
       <h1 className="text-center mt-5 mb-3">Datos Administrativos</h1>
       <Container>
         <Row className="pprincipal">
@@ -100,50 +102,84 @@ export const Administracion = () => {
                   <Form.Label>
                     <strong>Nombre</strong>
                   </Form.Label>
-                  <Form.Control required type="text" defaultValue={nombre} readOnly />
-
+                  <Form.Control
+                    required
+                    type="text"
+                    defaultValue={nombre}
+                    readOnly
+                  />
                 </Form.Group>
 
                 <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Apellido</strong>
                   </Form.Label>
-                  <Form.Control required type="text" defaultValue={apellido} readOnly  />
+                  <Form.Control
+                    required
+                    type="text"
+                    defaultValue={apellido}
+                    readOnly
+                  />
                 </Form.Group>
 
                 <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Fecha de ingreso</strong>
                   </Form.Label>
-                  <Form.Control required type="Fecha" defaultValue={fechaIngreso} readOnly/>
+                  <Form.Control
+                    required
+                    type="Fecha"
+                    defaultValue={fechaIngreso}
+                    readOnly
+                  />
                 </Form.Group>
 
                 <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Contacto</strong>
                   </Form.Label>
-                  <Form.Control required type="number" defaultValue={telefono} readOnly/>
+                  <Form.Control
+                    required
+                    type="number"
+                    defaultValue={telefono}
+                    readOnly
+                  />
                 </Form.Group>
 
                 <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>ID</strong>
                   </Form.Label>
-                  <Form.Control required type="text" defaultValue={_id} readOnly />
+                  <Form.Control
+                    required
+                    type="text"
+                    defaultValue={_id}
+                    readOnly
+                  />
                 </Form.Group>
 
                 <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Nombre Institucion</strong>
                   </Form.Label>
-                  <Form.Control required type="text" defaultValue={colegio} readOnly/>
+                  <Form.Control
+                    required
+                    type="text"
+                    defaultValue={colegio}
+                    readOnly
+                  />
                 </Form.Group>
 
                 <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Email Institucion</strong>
                   </Form.Label>
-                  <Form.Control required type="email" defaultValue={contacto} readOnly />
+                  <Form.Control
+                    required
+                    type="email"
+                    defaultValue={contacto}
+                    readOnly
+                  />
                 </Form.Group>
               </Form>
             </Card>
@@ -179,7 +215,6 @@ export const Administracion = () => {
           </Col>
         </Row>
       </Container>
-     
     </>
   );
 };

@@ -11,13 +11,13 @@
   right: 20px; /* Ajusta la posición según tus preferencias */
 }
 
-.boton{
+.boton {
   border-radius: 15%;
   background-color: rgb(195, 52, 52);
   color: white;
 }
 
-.botonalumnos{
+.botonalumnos {
   border-radius: 15%;
   background-color: rgb(11, 168, 8);
   color: white;

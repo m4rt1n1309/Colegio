@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Row from 'react-bootstrap/Row';
+import { useState } from "react";
+import { Card } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import "../style/login.css";
 
 function ValidarRegistro() {
   const [validated, setValidated] = useState(false);
@@ -20,47 +20,56 @@ function ValidarRegistro() {
 
   return (
     <>
-    
-    <Form  style={{width:'500px'}} noValidate validated={validated} onSubmit={handleSubmit} className='ms-4 mt-3  d-flex align-items-end flex-column'>
-      <Row className="mb-3">
-        <Form.Group as={Row} md="4" controlId="validationCustom01">
-          <Form.Label><strong>Nombre</strong></Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Nombre"
-            defaultValue=""
-            className='mt-3'
-          />
-          <Form.Control.Feedback>Perfecto!</Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group as={Row} md="4" controlId="validationCustom02" className="mt-3">
-          <Form.Label><strong>Apellido</strong></Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Apellido"
-            defaultValue=""
-            className='mt-3'
-          />
-          <Form.Control.Feedback>Perfecto!</Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group as={Row} md="4" controlId="validationCustom02" className="mt-3">
-          <Form.Label><strong>Email</strong></Form.Label>
-          <Form.Control
-            required
-            type="email"
-            placeholder="ejemplo@ejemplo.com"
-            defaultValue=""
-            className='mt-3'
-          />
-          <Form.Control.Feedback>Perfecto!</Form.Control.Feedback>
-        </Form.Group>
-      </Row>
-      
-      
-      <Button type="submit" className='mt-3 '>Registrar</Button>
-    </Form>
+      <Form
+        validated={validated}
+        onSubmit={handleSubmit}
+        className="ms-4 mt-3 d-flex align-items-center flex-column "
+      >
+        <Col md={6} sm={10} controlid="validationCustom01">
+          <Card border="primary" className="p-3 border rounded my-5  ">
+            <Form>
+              <Form.Group as={Col} controlid="validationCustom0">
+                <Form.Label>
+                  <strong>Nombre</strong>
+                </Form.Label>
+                <Form.Control required type="text" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlid="validationCustom02">
+                <Form.Label>
+                  <strong>Apellido</strong>
+                </Form.Label>
+                <Form.Control required type="text" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlid="validationCustom02">
+                <Form.Label>
+                  <strong>Email</strong>
+                </Form.Label>
+                <Form.Control required type="email" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlid="validationCustom02">
+                <Form.Label>
+                  <strong>Password</strong>
+                </Form.Label>
+                <Form.Control required type="password" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlid="validationCustom02">
+                <Form.Label>
+                  <strong>Telefono</strong>
+                </Form.Label>
+                <Form.Control required type="number" />
+              </Form.Group>
+
+              <Button type="submit" className="mt-3 ">
+                Registrar
+              </Button>
+            </Form>
+          </Card>
+        </Col>
+      </Form>
     </>
   );
 }

@@ -3,7 +3,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 import pruebaApi from "../api/pruebaApi";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function LoginFunction() {
   const [email, setEmail] = useState("");
@@ -25,23 +25,21 @@ function LoginFunction() {
     setShowPassword(!showPassword);
   };
 
-  const startLogin = async (email, password) =>{
+  const startLogin = async (email, password) => {
     try {
-      
-      const resp = await pruebaApi.post("auth/login",{
+      const resp = await pruebaApi.post("auth/login", {
         email,
         password,
       });
-      
-      setToken(resp.data.token);
-      localStorage.setItem('token', resp.data.token);
-      
-      navigate('administracion');
 
+      setToken(resp.data.token);
+      localStorage.setItem("token", resp.data.token);
+
+      navigate("administracion");
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   const handleSubmit = (e) => {
     //prever que se refresque la pagina
