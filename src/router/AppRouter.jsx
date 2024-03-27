@@ -3,6 +3,7 @@ import { LoginScreen } from "../components/LoginScreen";
 import { Administracion } from "../components/Administracion";
 import { RegistroScreen } from "../components/RegistroScreen";
 import { Alumnos } from "../components/Alumnos";
+import { EstadoAcademico } from "../components/EstadoAcademico";
 
 export const AppRouter = () => {
   const isLoggedIn = localStorage.getItem('token');
@@ -12,6 +13,7 @@ export const AppRouter = () => {
       <Routes>
         <Route path="/" element={<LoginScreen />} />
         <Route path="/registro" element={<RegistroScreen />} />
+        <Route path="/alumnos/:id" element={<EstadoAcademico/>} />
         <Route
           path="/alumnos"
           element={isLoggedIn ? <Alumnos /> : <Navigate to="/" />}

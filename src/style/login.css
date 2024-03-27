@@ -6,7 +6,10 @@
     object-fit: cover;
     background-position: center;
 }
-    
+
+.bordered{
+    border-width: 5px !important;
+}
 
 .login{
     width: 300px;
