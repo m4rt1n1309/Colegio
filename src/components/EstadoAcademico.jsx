@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
 import pruebaApi from "../api/pruebaApi";
 import { Table } from "react-bootstrap";
+import CargarNotas from "./cargarNotas";
+
 
 const EstadoAcademico = () => {
   const [alumno, setAlumno] = useState(null);
   const alumnoIdLocalStorage = localStorage.getItem("alumnoId"); // Obtener el ID del alumno del localStorage
+ 
+
+
 
   useEffect(() => {
     const obtenerAlumno = async () => {
@@ -41,10 +46,14 @@ const EstadoAcademico = () => {
     return <p>Cargando...</p>; // Muestra un mensaje de carga mientras se obtienen los datos del alumno
   }
   console.log(alumno);
+
+ 
   return (
     <>
       <h1 className="textoAlumnos"> Estado Académico del Alumno</h1>
-
+      <CargarNotas/>
+     
+      
       <Table
         striped
         bordered
@@ -63,7 +72,10 @@ const EstadoAcademico = () => {
           {/* Asegúrate de ajustar esto según la estructura de datos en tu backend */}
           <tr>
             <td>Matemáticas</td>
-            <td>{alumno.matematicas}</td>
+            <td>{alumno.matematicas}
+            </td>
+
+
           </tr>
           <tr>
             <td>Lengua y Literatura</td>
