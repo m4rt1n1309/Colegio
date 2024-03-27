@@ -24,7 +24,7 @@ function ValidarRegistro() {
         password,
         telefono,
       });
-
+      console.log(resp);
       localStorage.setItem("token", resp.data.token);
     } catch (error) {
       console.log(error);
@@ -141,7 +141,7 @@ function ValidarRegistro() {
                   />
                 </Form.Group>
 
-                <Button type="submit" className="mt-3 ">
+                <Button type="submit" className="mt-3" onSubmit={handleSubmit}>
                   Registrar
                 </Button>
               </Form>

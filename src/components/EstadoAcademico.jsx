@@ -5,4 +5,3 @@ export const EstadoAcademico = () => {
     <div>EstadoAcademico</div>
   )
 }
-
