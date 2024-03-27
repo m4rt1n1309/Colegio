@@ -15,23 +15,34 @@ function CargarNotas() {
 	const [curso, setCurso] = useState('');
   const [situacionCuota, setSituacionCuota] = useState('');
 	const [error, setError] = useState('');
-  const {lenguaLiteratura, setLenguaLiteratura} = useState (null);
-  const {biologia, setBiologia} = useState (null);
-  const {fisica, setFisica} = useState (null);
-  const {quimica, setQuimica} = useState (null);
-  const {economia, setEconomia} = useState (null);
-  const {geografia, setGeografia} = useState (null);
-  const {historia, setHistoria} = useState (null);
-  const {educacionFisica, setEducacionFisica} = useState (null);
-  const {matematicas, setMatematicas} = useState (" ");
+  const [lenguaLiteratura, setLenguaLiteratura] = useState ('');
+  const [biologia, setBiologia] = useState ('');
+  const [fisica, setFisica] = useState ('');
+  const [quimica, setQuimica] = useState ('');
+  const [economia, setEconomia] = useState ('');
+  const [geografia, setGeografia] = useState ('');
+  const [historia, setHistoria] = useState ('');
+  const [educacionFisica, setEducacionFisica] = useState ('');
+  const [matematicas, setMatematicas] = useState (" ");
   const alumnoIdLocalStorage = localStorage.getItem("alumnoId"); // Obtener el ID del alumno del localStorage
 	
 
-	const handleSubmit = (e) => {
-    const cargaNotas = async ({id, matematicas, lenguaLiteratura, biologia,fisica,quimica,economia,geografia,historia,educacionFisica}) => {
+	const handleSubmit = () => {
+
+    
+    const cargaNotas = async (_id, matematicas, lenguaLiteratura, biologia,fisica,quimica,economia,geografia,historia,educacionFisica) => {
       try {
         const resp = await pruebaApi.put('/admin/cargarnotas', {
-          id, matematicas, lenguaLiteratura, biologia,fisica,quimica,economia,geografia,historia,educacionFisica
+          _id,
+           matematicas,
+            lenguaLiteratura, 
+            biologia,
+            fisica,
+            quimica,
+            economia,
+            geografia,
+            historia,
+            educacionFisica
         });
         window.location.reload(); // Refrescar la página aquí   
 
@@ -39,30 +50,7 @@ function CargarNotas() {
         console.log(error);
       }
     };
-	// 	e.preventDefault();
-	// 	//validaciones
-	// 	if (nombre === '' || apellido === '' || curso === ''|| situacionCuota === '') {
-	// 		Swal.fire({
-    //     icon: "error",
-    //     title: "Oops...",
-    //     text: "Todos los campos son obligatorios",
-    //   });
-	// 	}
-    // else if(curso < 1 || curso > 4){
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Oops...",
-    //     text: "El año que curso deber ser de 1° a 4°",
-    //   });
-    // }
-    // else {
-    //   Swal.fire({
-    //     position: "top-end",
-    //     icon: "success",
-    //     title: "Registro existoso",
-    //     showConfirmButton: false,
-    //     timer: 1500
-    //   });
+	
       cargaNotas(alumnoIdLocalStorage, matematicas, lenguaLiteratura, biologia,fisica,quimica,economia,geografia,historia,educacionFisica);
       handleClose();
         
