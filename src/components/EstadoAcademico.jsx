@@ -51,7 +51,7 @@ const EstadoAcademico = () => {
   return (
     <>
       <h1 className="textoAlumnos"> Estado Académico del Alumno</h1>
-      <CargarNotas/>
+      
      
       
       <Table
