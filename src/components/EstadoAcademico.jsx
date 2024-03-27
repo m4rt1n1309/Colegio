@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import pruebaApi from "../api/pruebaApi";
 import { Table } from "react-bootstrap";
-import CargarNotas from "./cargarNotas";
 
 
 const EstadoAcademico = () => {
