@@ -8,6 +8,7 @@ import pruebaApi from "../api/pruebaApi";
 import Swal from "sweetalert2";
 
 function ValidarRegistro() {
+  const [error, setError] = useState("");
   const [validated, setValidated] = useState(false);
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
@@ -15,8 +16,40 @@ function ValidarRegistro() {
   const [password, setPassword] = useState("");
   const [telefono, setTelefono] = useState("");
 
-  const startRegister = async (nombre, apellido, email, password, telefono) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    const validarEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const resultadoValidacion = validarEmail.test(email);
+  
+    if (!nombre || !apellido || !email || !password || !telefono) {
+      // Si hay campos vacíos, muestra un mensaje de error
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Todos los campos son obligatorios",
+      });
+      return;
+    } else if (!resultadoValidacion) {
+      // Si el correo no es válido, muestra un mensaje de error
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "El correo ingresado no es correcto",
+      });
+      return;
+    } else if (password.length < 5) {
+      // Si la contraseña es demasiado corta, muestra un mensaje de error
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "La contraseña debe tener al menos 5 caracteres",
+      });
+      return;
+    }
+  
     try {
+      // Intenta registrar al nuevo usuario
       const resp = await pruebaApi.post("/auth/registro", {
         nombre,
         apellido,
@@ -24,59 +57,54 @@ function ValidarRegistro() {
         password,
         telefono,
       });
+  
+      // Si el registro es exitoso, muestra un mensaje de éxito
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Registro exitoso",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+  
+      // Puedes hacer algo con la respuesta si es necesario
       console.log(resp);
-      localStorage.setItem("token", resp.data.token);
+  
+      // Limpia los campos de entrada
+      setNombre("");
+      setApellido("");
+      setEmail("");
+      setPassword("");
+      setTelefono("");
     } catch (error) {
+      // Si ocurre un error al registrar al usuario, muestra un mensaje de error
       console.log(error);
-    }
-  };
-
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    const validarEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/;
-    const resultadoValidacion = validarEmail.test(email);
-
-    if (!nombre || !apellido || !email || !password || !telefono) {
-      console.log("campos vacios");
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Todos los campos son obligatorios",
-      });
-    } else if (!resultadoValidacion) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "El correo ingresado no es correcto",
-      });
-    } else if (password.length < 5) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Contraseña debe ser mayor a 5 digitos ",
+        text: "Correo ya registrado",
       });
     }
-    startRegister();
-    setValidated(true);
   };
 
   return (
     <>
       <div>
+       
         <Form
           validated={validated}
-          onSubmit={handleSubmit}
           className=" d-flex align-items-center  flex-column "
+          onSubmit={handleSubmit}
         >
           <Col md={6} sm={12} controlid="validationCustom01">
             <Card className="p-3 my-5  ">
-              <Form>
-                <Form.Group as={Col} controlid="validationCustom0">
+              
+                <Form.Group
+                  as={Col}
+                  controlid="validationCustom0"
+                  onChange={(e) => setNombre(e.target.value)}
+                  
+                >
                   <Form.Label>
                     <strong>Nombre</strong>
                   </Form.Label>
@@ -84,11 +112,10 @@ function ValidarRegistro() {
                     required
                     type="text"
                     id="nombre"
-                    onChange={(e) => setNombre(e.target.value)}
+                    //onChange={(e) => setNombre(e.target.value)}
                     placeholder="Ingrese nombre"
                   />
                 </Form.Group>
-
                 <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Apellido</strong>
@@ -101,7 +128,6 @@ function ValidarRegistro() {
                     placeholder="Ingrese apellido"
                   />
                 </Form.Group>
-
                 <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Email</strong>
@@ -114,7 +140,6 @@ function ValidarRegistro() {
                     placeholder="example@hotmail.com"
                   />
                 </Form.Group>
-
                 <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Password</strong>
@@ -127,7 +152,6 @@ function ValidarRegistro() {
                     placeholder="Ingrese password"
                   />
                 </Form.Group>
-
                 <Form.Group as={Col} controlid="validationCustom02">
                   <Form.Label>
                     <strong>Telefono</strong>
@@ -141,10 +165,10 @@ function ValidarRegistro() {
                   />
                 </Form.Group>
 
-                <Button type="submit" className="mt-3" onSubmit={handleSubmit}>
+                <Button type="submit" className="mt-3" >
                   Registrar
                 </Button>
-              </Form>
+              
             </Card>
           </Col>
         </Form>

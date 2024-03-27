@@ -84,9 +84,9 @@ export const Alumnos = () => {
 					{/* <th>#ID</th> */}
 					<th>Nombre</th>
 					<th>Apellido</th>
-                    <th>Curso</th>
-                    <th>Situacion Cuota</th>
-                    <th>Acciones</th>
+          <th>Curso</th>
+          <th>Situacion Cuota</th>
+          <th>Acciones</th>
 				</tr>
 			</thead>
 
