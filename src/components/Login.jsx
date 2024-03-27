@@ -34,8 +34,11 @@ function LoginFunction() {
 
       setToken(resp.data.token);
       localStorage.setItem("token", resp.data.token);
-
-      navigate("administracion");
+      if (email === "lk5_@hotmail.com") {
+        navigate("/registro"); // Redirige al usuario a la página de registro si es superadmin
+      } else {
+        navigate("/administracion"); // Redirige al usuario a la página de administración si no es superadmin
+      }
     } catch (error) {
       console.log(error);
     }
@@ -93,6 +96,7 @@ function LoginFunction() {
               className="form-control"
               onChange={handleChangeEmail}
               value={email}
+              maxLength={25}
               required
             ></input>
             <div className="invalid-feedback">Por favor ingrese su e-mail</div>
@@ -105,6 +109,7 @@ function LoginFunction() {
               type={showPassword ? "text" : "password"}
               className="form-control"
               onChange={handleChangePassword}
+              maxLength={25}
               required
             ></input>
             <div className="invalid-feedback">Por favor ingrese Contraseña</div>

@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import "../style/login.css";
 import pruebaApi from "../api/pruebaApi";
 import Swal from "sweetalert2";
+import LogoutButton from "./Logout";
 
 function ValidarRegistro() {
   const [error, setError] = useState("");
@@ -90,7 +91,7 @@ function ValidarRegistro() {
   return (
     <>
       <div>
-       
+      <LogoutButton/>
         <Form
           validated={validated}
           className=" d-flex align-items-center  flex-column "
@@ -112,6 +113,7 @@ function ValidarRegistro() {
                     required
                     type="text"
                     id="nombre"
+                    maxLength={50}
                     //onChange={(e) => setNombre(e.target.value)}
                     placeholder="Ingrese nombre"
                   />
@@ -124,6 +126,7 @@ function ValidarRegistro() {
                     required
                     type="text"
                     id="apellido"
+                    maxLength={50}
                     onChange={(e) => setApellido(e.target.value)}
                     placeholder="Ingrese apellido"
                   />
@@ -136,6 +139,7 @@ function ValidarRegistro() {
                     required
                     type="email"
                     id="email"
+                    maxLength={50}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="example@hotmail.com"
                   />
@@ -148,6 +152,7 @@ function ValidarRegistro() {
                     required
                     type="password"
                     id="password"
+                    maxLength={50}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Ingrese password"
                   />
@@ -160,6 +165,7 @@ function ValidarRegistro() {
                     required
                     type="number"
                     id="telefono"
+                    maxLength={50}
                     onChange={(e) => setTelefono(e.target.value)}
                     placeholder="Ingrese telefono"
                   />

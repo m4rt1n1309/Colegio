@@ -141,7 +141,7 @@ export const Alumnos = () => {
                   {alumno.situacionCuota ? "Pago al día" : "Pendiente de pago"}
                 </td>
                 <td>
-                  <button style={{ backgroundColor: "green", color: "black" }}>
+                  <button style={{ backgroundColor: "green", color: "white" }}>
                     <Link
                       to={`/alumnos/${alumno._id}`}
                       onClick={() =>
@@ -149,7 +149,7 @@ export const Alumnos = () => {
                       }
                     >
                       Mostrar Más
-                    </Link>{" "}
+                    </Link>
                   </button>
                   {/* Botón para eliminar */}
                   <button
@@ -158,21 +158,8 @@ export const Alumnos = () => {
                   >
                     &#10060; {/* Icono de cruz */}
                   </button>
-
-                  {/* Botón para editar */}
-                  <button
-                    style={{ backgroundColor: "yellow", color: "black" }}
-                    onClick={() =>
-                      handleEditarClick(alumno.id, {
-                        nombre: "Nuevo nombre",
-                        apellido: "Nuevo apellido",
-                        materia: "Nueva materia",
-                        nota: "",
-                      })
-                    }
-                  >
-                    Editar
-                  </button>
+                  
+                  
                 </td>
               </tr>
             );
