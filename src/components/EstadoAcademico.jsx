@@ -74,8 +74,12 @@ const EstadoAcademico = () => {
             <td>{alumno.biologia}</td>
           </tr>
           <tr>
-            <td>Física Química</td>
+            <td>Física</td>
             <td>{alumno.fisica}</td>
+          </tr>
+          <tr>
+            <td>Quimica</td>
+            <td>{alumno.quimica}</td>
           </tr>
           <tr>
             <td>Economía</td>
