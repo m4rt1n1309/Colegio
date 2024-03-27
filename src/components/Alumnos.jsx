@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 
 export const Alumnos = () => {
+  
     const [cargarAlumnos, setCargarAlumnos] = useState ([]);
     const listaAlumnos = async ()=>{
         try {
@@ -103,7 +104,7 @@ export const Alumnos = () => {
                             </td>
                             <td>
                             <button style={{ backgroundColor:"green", color: 'black' }}>
-                            <Link to={`/alumnos/${alumno._id}`}>Mostrar Más</Link> </button>
+                            <Link to={`/alumnos/${alumno._id}`} onClick={() => localStorage.setItem('alumnoId', alumno._id)}>Mostrar Más</Link> </button>
                             {/* Botón para eliminar */}
                             <button style={{ backgroundColor:"red", color: 'black' }} onClick={() => handleEliminarClick(alumno._id)}>
                              &#10060; {/* Icono de cruz */}
