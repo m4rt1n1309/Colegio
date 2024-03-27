@@ -6,7 +6,7 @@ export const RegistroScreen = () => {
     <>
       <div className="wrapper ">
         <div>
-          <h1 className="text-center">Registro</h1>
+          <h1 className="text-center ">Registro</h1>
           <ValidarRegistro />
         </div>
       </div>
