@@ -12,7 +12,11 @@ export const AppRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginScreen />} />
-        <Route path="/registro" element={<RegistroScreen />} />
+        <Route
+          path="/registro"
+          element={isLoggedIn ? <RegistroScreen /> : <Navigate to="/" />}
+        />
+        
         <Route path="/alumnos/:id" element={<EstadoAcademico />} />
         <Route
           path="/alumnos"
