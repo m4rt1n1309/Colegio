@@ -14,8 +14,8 @@ export const AppRouter = () => {
       <Routes>
         <Route path="/" element={<LoginScreen />} />
         <Route
-          path="/registro"
-          element={isLoggedIn ? <RegistroScreen /> : <Navigate to="/" />}
+          path="/lista"
+          element={isLoggedIn ? <ListaAdmin /> : <Navigate to="/" />}
         />
         
         <Route path="/alumnos/:id" element={<EstadoAcademico />} />
@@ -27,7 +27,8 @@ export const AppRouter = () => {
           path="/administracion"
           element={isLoggedIn ? <Administracion /> : <Navigate to="/" />}
         />
-        <Route path="/lista" element={<ListaAdmin />} />
+        <Route path="/registro" element={<RegistroScreen />} />
+     
       </Routes>
     </BrowserRouter>
   );

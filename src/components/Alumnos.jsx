@@ -6,6 +6,7 @@ import "../style/login.css";
 import ModalRegistro from "./ModalRegistro";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import "../style/ppprincipal.css"
 
 export const Alumnos = () => {
   const [cargarAlumnos, setCargarAlumnos] = useState([]);
@@ -14,7 +15,6 @@ export const Alumnos = () => {
     try {
       const resp = await pruebaApi.get("/admin/listaalumnos");
       setCargarAlumnos(resp.data.listaAlumnos);
-      console.log(cargarAlumnos);
     } catch (error) {
       console.log(error);
     }
@@ -22,7 +22,7 @@ export const Alumnos = () => {
 
   useEffect(() => {
     listaAlumnos();
-  }, []);
+  }, [cargarAlumnos]);
 
   const handleEliminarClick = async (id) => {
     // Muestra una ventana emergente de confirmación antes de eliminar el alumno
@@ -108,15 +108,23 @@ export const Alumnos = () => {
 
   return (
     <>
+    <div className="wrapper">
       <h1 className="textoAlumnos"> Alumnos</h1>
+      <div className="d-flex justify-content-center">
       <ModalRegistro />
+      </div>
 
       <Table
         striped
         bordered
         hover
         variant="ligth"
-        style={{ borderCollapse: "collapse", border: "2px solid black" }}
+        style={{ 
+          maxWidth: "1000px", // Establece el ancho máximo de la tabla
+          margin: "0 auto", // Centra la tabla horizontalmente
+          borderCollapse: "collapse", 
+          border: "2px solid black"
+         }}
       >
         <thead className="bold">
           <tr>
@@ -166,6 +174,7 @@ export const Alumnos = () => {
           })}
         </tbody>
       </Table>
+      </div>
     </>
   );
 };

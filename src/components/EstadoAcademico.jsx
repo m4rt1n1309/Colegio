@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import pruebaApi from "../api/pruebaApi";
 import { Table } from "react-bootstrap";
+import "../style/ppprincipal.css"
 
 
 const EstadoAcademico = () => {
@@ -49,6 +50,7 @@ const EstadoAcademico = () => {
  
   return (
     <>
+    <div className="wrapper">
       <h1 className="textoAlumnos"> Estado Académico del Alumno</h1>
       
      
@@ -58,7 +60,12 @@ const EstadoAcademico = () => {
         bordered
         hover
         variant="ligth"
-        style={{ borderCollapse: "collapse", border: "2px solid black" }}
+        style={{ 
+          maxWidth: "500px", // Establece el ancho máximo de la tabla
+          margin: "0 auto", // Centra la tabla horizontalmente
+          borderCollapse: "collapse", 
+          border: "2px solid black"
+         }}
       >
         <thead className="bold">
           <tr>
@@ -110,6 +117,7 @@ const EstadoAcademico = () => {
           </tr>
         </tbody>
       </Table>
+      </div>
     </>
   );
 };

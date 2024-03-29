@@ -1,9 +1,12 @@
 import { useEffect } from "react";
 import pruebaApi from "../api/pruebaApi";
 import { useState } from "react";
-import { Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import "../style/login.css";
 import Swal from "sweetalert2";
+import "../style/ppprincipal.css"
+import { RegistroScreen } from "./RegistroScreen";
+import { Link, Navigate } from "react-router-dom";
 
 export const ListaAdmin = () => {
   const [cargarAdmin, setCargarAdmin] = useState([]);
@@ -11,7 +14,6 @@ export const ListaAdmin = () => {
     try {
       const resp = await pruebaApi.get("/admin/listaadmins");
       setCargarAdmin(resp.data.listaAdmin);
-      
     } catch (error) {
       console.log(error);
     }
@@ -83,14 +85,24 @@ export const ListaAdmin = () => {
 
   return (
     <>
+    <div className="wrapper">
       <h1 className="textoAlumnos"> Administradores</h1>
-      
+      <Link to="/registro">
+        <Button variant="primary">
+          Registrar
+        </Button>
+      </Link>
       <Table
         striped
         bordered
         hover
         variant="ligth"
-        style={{ borderCollapse: "collapse", border: "2px solid black" }}
+        style={{ 
+          maxWidth: "700px", // Establece el ancho máximo de la tabla
+          margin: "0 auto", // Centra la tabla horizontalmente
+          borderCollapse: "collapse", 
+          border: "2px solid black"
+         }}
       >
         <thead className="bold">
           <tr>
@@ -128,6 +140,7 @@ export const ListaAdmin = () => {
           })}
         </tbody>
       </Table>
+      </div>
     </>
   );
 };
