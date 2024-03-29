@@ -4,6 +4,7 @@ import { Administracion } from "../components/Administracion";
 import { RegistroScreen } from "../components/RegistroScreen";
 import { Alumnos } from "../components/Alumnos";
 import EstadoAcademico from "../components/EstadoAcademico";
+import { ListaAdmin } from "../components/ListaAdmin";
 
 export const AppRouter = () => {
   const isLoggedIn = localStorage.getItem("token");
@@ -26,6 +27,7 @@ export const AppRouter = () => {
           path="/administracion"
           element={isLoggedIn ? <Administracion /> : <Navigate to="/" />}
         />
+        <Route path="/lista" element={<ListaAdmin />} />
       </Routes>
     </BrowserRouter>
   );
