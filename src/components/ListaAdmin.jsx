@@ -6,11 +6,9 @@ import "../style/login.css";
 
 export const ListaAdmin = () => {
   const [cargarAdmin, setCargarAdmin] = useState([]);
-
   const ListaAdmin = async () => {
     try {
       const resp = await pruebaApi.get("/admin/listaadmin");
-      console.log(resp);
       setCargarAdmin(resp.data.listaAdmin);
       console.log(cargarAdmin);
     } catch (error) {
@@ -20,7 +18,7 @@ export const ListaAdmin = () => {
 
   useEffect(() => {
     ListaAdmin();
-  }, []);
+  }, [cargarAdmin]);
 
   return (
     <>
