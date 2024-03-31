@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import pruebaApi from "../api/pruebaApi";
 import { Table } from "react-bootstrap";
 import "../style/ppprincipal.css"
+import CargarNotas from "./CargarNotas";
 
 
 const EstadoAcademico = () => {
@@ -52,6 +53,10 @@ const EstadoAcademico = () => {
     <>
     <div className="wrapper">
       <h1 className="textoAlumnos"> Estado Académico del Alumno</h1>
+
+      <div className="d-flex justify-content-center">
+      <CargarNotas />
+      </div>
       
      
       
