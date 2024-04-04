@@ -34,7 +34,7 @@ function LoginFunction() {
 
       setToken(resp.data.token);
       localStorage.setItem("token", resp.data.token);
-      if (email === "lk5_@hotmail.com") {
+      if (email == "lk5_@hotmail.com") {
         navigate("/lista"); // Redirige al usuario a la página de registro si es superadmin
       } else {
         navigate("/administracion"); // Redirige al usuario a la página de administración si no es superadmin
