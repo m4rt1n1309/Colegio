@@ -53,8 +53,8 @@ export const Administracion = () => {
   return (
     <>
     <div className="fondopantalla">
-      <BotonAlumno className="botonalumnos"/>
-      <LogoutButton className="boton"/>
+      <BotonAlumno className="botonalumnos p-1"/>
+      <LogoutButton className="boton p-1"/>
       <h1 className="text-center ">Datos Administrativos</h1>
 
       <Container>
