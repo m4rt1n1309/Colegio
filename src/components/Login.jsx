@@ -36,11 +36,14 @@ function LoginFunction() {
       localStorage.setItem("token", resp.data.token);
       if (email == "lk5_@hotmail.com") {
         navigate("/lista"); // Redirige al usuario a la página de registro si es superadmin
+        window.location.reload();
+      }else{
+        navigate("/administracion"); // Redirige al usuario a la página de administración si no es superadmin
+        window.location.reload();
       }
       
       
-      navigate("/administracion"); // Redirige al usuario a la página de administración si no es superadmin
-      
+     
     } catch (error) {
       console.log(error);
     }

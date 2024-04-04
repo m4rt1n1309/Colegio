@@ -53,12 +53,12 @@ export const Administracion = () => {
   return (
     <>
     <div className="fondopantalla">
-      <BotonAlumno className="botonalumnos p-1"/>
-      <LogoutButton className="boton p-1"/>
+      <BotonAlumno className="botonalumnos pb-3"/>
+      <LogoutButton className="boton pb-3"/>
       <h1 className="text-center ">Datos Administrativos</h1>
 
       <Container>
-        <Row className="pprincipal">
+        <Row className="pprincipal pt-4">
           {/* Cartel de propaganda izquierdo */}
           <Col md={3} className="d-none d-md-block">
             <Card className="p-3  mt-5">

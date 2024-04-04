@@ -8,6 +8,9 @@ import { ListaAdmin } from "../components/ListaAdmin";
 
 export const AppRouter = () => {
   const isLoggedIn = localStorage.getItem("token");
+  
+ 
+  
 
   return (
     <BrowserRouter>
@@ -15,10 +18,10 @@ export const AppRouter = () => {
         <Route path="/" element={<LoginScreen />} />
         <Route
           path="/lista"
-          element={isLoggedIn ? <ListaAdmin /> : <Navigate to="/" />}
+          element={ isLoggedIn? <ListaAdmin /> : <Navigate to="/" />}
         />
         
-        <Route path="/alumnos/:id" element={<EstadoAcademico />} />
+        <Route path="/alumnos/:id" element={isLoggedIn ?<EstadoAcademico />: <Navigate to="/" />} />
         <Route
           path="/alumnos"
           element={isLoggedIn ? <Alumnos /> : <Navigate to="/" />}
@@ -27,7 +30,7 @@ export const AppRouter = () => {
           path="/administracion"
           element={isLoggedIn ? <Administracion /> : <Navigate to="/" />}
         />
-        <Route path="/registro" element={<RegistroScreen />} />
+        <Route path="/registro" element={isLoggedIn ? <RegistroScreen /> : <Navigate to="/" />} />
      
       </Routes>
     </BrowserRouter>
