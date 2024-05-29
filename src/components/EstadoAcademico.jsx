@@ -52,7 +52,7 @@ const EstadoAcademico = () => {
   return (
     <>
     <div className="wrapper">
-      <h1 className="textoAlumnos"> Estado Académico del Alumno</h1>
+      <h1 className="textoAlumnos"> Estado Académico del Alumno <strong>{alumno.nombre} {alumno.apellido} </strong></h1>
 
       <div className="d-flex justify-content-center">
       <CargarNotas />

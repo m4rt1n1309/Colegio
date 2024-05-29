@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const pruebaApi = axios.create({
-    baseURL : "https://backend-prueba-1.onrender.com",
+    baseURL : "http://localhost:10000",
 });
 
 pruebaApi.interceptors.request.use((config) =>{
