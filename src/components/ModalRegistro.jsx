@@ -116,7 +116,7 @@ function ModalRegistro() {
               <Form.Control
                 id="situacionCuota"
                 type="boolean"
-                placeholder="pagó/pendiente de pago"
+                placeholder="pago/impago"
                 onChange={(e) => setSituacionCuota(e.target.value)}
                 autoFocus
               />
