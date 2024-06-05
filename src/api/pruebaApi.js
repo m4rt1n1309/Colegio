@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const pruebaApi = axios.create({
-    baseURL : "http://localhost:10000",
+    baseURL : "https://deploy-render-ka05.onrender.com",
 });
 
 pruebaApi.interceptors.request.use((config) =>{
