@@ -7,6 +7,7 @@ import ModalRegistro from "./ModalRegistro";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import "../style/ppprincipal.css"
+import BotonAtras from "./BotonAtras";
 
 export const Alumnos = () => {
   const [cargarAlumnos, setCargarAlumnos] = useState([]);
@@ -112,6 +113,7 @@ export const Alumnos = () => {
       <h1 className="textoAlumnos"> Alumnos</h1>
       <div className="d-flex justify-content-center">
       <ModalRegistro />
+      <BotonAtras />
       </div>
 
       <Table

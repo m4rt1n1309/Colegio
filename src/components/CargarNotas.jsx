@@ -7,6 +7,7 @@ import "sweetalert2/dist/sweetalert2.min.css";
 
 import pruebaApi from '../api/pruebaApi';
 import "../style/modalregistro.css"
+import BotonAtras from './BotonAtras';
 
 function CargarNotas() {
   const [show, setShow] = useState(false);
@@ -83,8 +84,9 @@ function CargarNotas() {
     <>
     <div  >
       <Button variant="primary" onClick={handleShow}>
-        cambiar notas
+        Cambiar notas
       </Button>
+      <BotonAtras />
 
       <Modal  show={show} onHide={handleClose}>
         <Modal.Header closeButton>

@@ -7,6 +7,8 @@ import Swal from "sweetalert2";
 import "../style/ppprincipal.css"
 import { RegistroScreen } from "./RegistroScreen";
 import { Link, Navigate } from "react-router-dom";
+import LogoutButton from "./Logout";
+
 
 export const ListaAdmin = () => {
   const [cargarAdmin, setCargarAdmin] = useState([]);
@@ -85,6 +87,7 @@ export const ListaAdmin = () => {
 
   return (
     <>
+    <LogoutButton />
     <div className="wrapper">
       <h1 className="textoAlumnos"> Administradores</h1>
       <Link to="/registro">
